@@ -4,6 +4,15 @@ const URL = "https://api.giphy.com/v1/gifs/search?";
 
 searchBar = document.getElementById("searchTextField");
 searchButton = document.getElementById("search-button");
+searchBar.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        searchButton.click();
+    }
+});
 searchButton.addEventListener("click", doTheSearch);
 header = document.getElementById("header");
 selectedGif = document.getElementById("readOnlyLink");
